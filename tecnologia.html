@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Registro de Tecnología - Hotel Paraíso</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #f1f8e9);
+      margin: 0;
+      padding: 0;
+    }
+
+    header, footer {
+      background-color: #00695c;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2em;
+    }
+
+    header p {
+      margin: 5px 0 0;
+      font-size: 1.1em;
+    }
+
+    main {
+      max-width: 850px;
+      margin: 40px auto;
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    h2 {
+      text-align: center;
+      color: #004d40;
+      font-size: 1.8em;
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 14px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      transition: 0.3s ease-in-out;
+    }
+
+    input:focus, select:focus {
+      border-color: #00897b;
+      outline: none;
+      box-shadow: 0 0 5px #4db6ac;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 15px;
+      background-color: #00897b;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-submit:hover {
+      background-color: #00695c;
+    }
+
+    .icon-info {
+      display: flex;
+      align-items: center;
+      margin-bottom: 25px;
+      gap: 15px;
+      color: #004d40;
+    }
+
+    .icon-info i {
+      font-size: 30px;
+    }
+
+    footer {
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Hotel Paraíso</h1>
+  <p>Gestión de Tecnología y Equipos Inteligentes</p>
+</header>
+
+<main>
+  <h2><i class="fas fa-microchip"></i> Registro de Tecnología del Hotel</h2>
+
+  <div class="icon-info">
+    <i class="fas fa-video"></i>
+    <span>Controla tus <strong>cámaras de seguridad</strong> y asegúrate de que estén siempre operativas.</span>
+  </div>
+  <div class="icon-info">
+    <i class="fas fa-wifi"></i>
+    <span>Monitorea el estado de tus <strong>routers y redes Wi-Fi</strong> en todo el hotel.</span>
+  </div>
+  <div class="icon-info">
+    <i class="fas fa-lock"></i>
+    <span>Gestiona tus <strong>cerraduras electrónicas</strong> de habitaciones y áreas restringidas.</span>
+  </div>
+
+  <form action="procesar_tecnologia.php" method="POST">
+    <div class="form-group">
+      <label for="nombre">Nombre del Dispositivo *</label>
+      <input type="text" id="nombre" name="nombre" required placeholder="Ej: Cámara Lobby, Router Piso 2, Cerradura 302">
+    </div>
+
+    <div class="form-group">
+      <label for="estado">Estado Actual *</label>
+      <select id="estado" name="estado" required>
+        <option value="">-- Selecciona Estado --</option>
+        <option value="Operativo">Operativo</option>
+        <option value="En Mantenimiento">En Mantenimiento</option>
+        <option value="Fuera de Servicio">Fuera de Servicio</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="ubicacion">Ubicación Exacta *</label>
+      <input type="text" id="ubicacion" name="ubicacion" required placeholder="Ej: Recepción, Sala de Conferencias, Piso 3">
+    </div>
+
+    <button type="submit" class="btn-submit">Guardar Tecnología</button>
+  </form>
+</main>
+
+<footer>
+  &copy; 2025 Hotel Paraíso. Tecnología y confort en armonía.
+</footer>
+
+</body>
+</html>

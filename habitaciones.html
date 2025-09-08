@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Habitaciones - Hotel Paraíso</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<header>
+  <h1>Bienvenido a Hotel Paraíso</h1>
+  <p>Tu descanso y eventos en un solo lugar</p>
+ 
+</header>
+
+<nav>
+  <?php if (!$usuario): ?>
+    <a href="login.php" class="btn-nav login-btn">Iniciar sesión</a>
+    <a href="registro.php" class="btn-nav register-btn">Registrar usuario</a>
+  <?php else: ?>
+
+
+  <a href="index.php" class="active">Inicio</a>
+  <a href="habitaciones.html">Habitaciones</a>
+  <a href="servicios.php">Servicios</a>
+  <a href="contacto.html">Contacto</a>
+  <a href="conferencias.php">Registro y reserva</a>
+  <a href="comentarios.php">Comentarios</a>
+  
+</nav>
+
+  <main class="section">
+    <h2>Nuestras Habitaciones</h2>
+    <p>Elige la habitación que mejor se adapte a tu estilo y necesidades.</p>
+
+    <div class="habitaciones-grid">
+
+      <div class="habitacion">
+        <img src="./imagenes/habitaciones/habitacionSimple.jpg" alt="Habitación Simple" />
+        <h3>Habitación Simple</h3>
+        <p>Ideal para viajeros solos. Cama individual, baño privado, wifi y aire acondicionado.</p>
+        <p><strong>Precio:</strong> $40 por noche</p>
+      </div>
+
+      <div class="habitacion">
+        <img src="./imagenes/habitaciones/habitacionDoble.webp" alt="Habitación Doble" />
+        <h3>Habitación Doble</h3>
+        <p>Perfecta para parejas o amigos. Cama matrimonial o dos individuales, baño privado y amenities.</p>
+        <p><strong>Precio:</strong> $65 por noche</p>
+      </div>
+
+      <div class="habitacion">
+        <img src="./imagenes/habitaciones/habitacioSuite.jpg" alt="Suite" />
+        <h3>Suite</h3>
+        <p>Espacio amplio con sala de estar, balcón con vista al mar, minibar y servicio premium.</p>
+        <p><strong>Precio:</strong> $120 por noche</p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Hotel Paraíso. Todos los derechos reservados.
+  </footer>
+  <!-- Modal de imagen -->
+<div id="modal" class="modal">
+  <span class="cerrar">&times;</span>
+  <img class="modal-contenido" id="imgModal">
+  <div id="caption"></div>
+</div>
+
+  <script>
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("imgModal");
+    const captionText = document.getElementById("caption");
+    const closeBtn = document.querySelector(".cerrar");
+
+    document.querySelectorAll(".habitacion img").forEach(img => {
+      img.addEventListener("click", () => {
+        modal.style.display = "block";
+        modalImg.src = img.src;
+        captionText.innerHTML = img.alt;
+      });
+    });
+
+    closeBtn.onclick = function () {
+      modal.style.display = "none";
+    }
+
+    window.onclick = function (e) {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+</body>
+
+</html>

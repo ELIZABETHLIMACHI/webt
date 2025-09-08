@@ -1,0 +1,65 @@
+<?php
+$usuario = $_SESSION['usuario'] ?? null;
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contacto - Hotel Paraíso</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <header>
+    <h1>Bienvenido a Hotel Paraíso</h1>
+    <p>Tu descanso y eventos en un solo lugar</p>
+  </header>
+
+  <nav>
+    <?php if (!$usuario): ?>
+      <a href="login.php" class="btn-nav login-btn">Iniciar sesión</a>
+      <a href="registro.php" class="btn-nav register-btn">Registrar usuario</a>
+    <?php else: ?>
+      <a href="index.php">Inicio</a>
+      <a href="habitaciones.html">Habitaciones</a>
+      <a href="servicios.php">Servicios</a>
+      <a href="contacto.php" class="active">Contacto</a>
+      <a href="conferencias.php">Registro y reserva</a>
+      <a href="comentarios.php">Comentarios</a>
+     
+    <?php endif; ?>
+  </nav>
+
+  <main class="section">
+    <h2>Contáctanos</h2>
+    <form action="#" method="post" class="form-contacto">
+      <label for="nombre">Nombre completo:</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required /><br><br>
+
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required /><br><br>
+
+      <label for="mensaje">Mensaje:</label>
+      <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu consulta o comentario" required></textarea><br><br>
+
+      <button type="submit">Enviar Mensaje</button>
+    </form>
+
+    <section class="info-contacto">
+      <h3>Información de contacto</h3>
+      <p><strong>Dirección:</strong> Calle Principal #123, Ciudad</p>
+      <p><strong>Teléfono:</strong> +591 123 456 789</p>
+      <p><strong>Email:</strong> contacto@hotelparaiso.com</p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Hotel Paraíso. Todos los derechos reservados.
+  </footer>
+
+</body>
+</html>
